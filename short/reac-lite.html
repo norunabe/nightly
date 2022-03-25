@@ -1,6 +1,6 @@
 <body><input type="text" id="q"><input type="button" value="Go" id="c"><script>
-c.addEventListener("click",()=>{let a=[],x=[0,0],s=q.value,i=l=0,j=e=>{~`あかさ
+c.addEventListener("click",()=>{let a=[],x=[0,0],s=q.value,i=l=d=0,j=e=>{~`あかさ
 たなはまやらわがざだばぱゃ0いきしちにひみりぎじぢびぴ0うくすつぬふむゆるをぐずづ
 っぶぷゅ0えけせてねへめれげぜでべぺ0おこそとのほもよろんごぞどぼぽょ`.split(0)[
-e-1].indexOf(s[i])?a+=e:j(e+1)},f=z=>{if(z<2)return 1;return z*f(z-1);},v=(n,r
-)=>f(n)/(f(r)*f(n-r));for(i=l=s.length;i--;)j(1);for(i=l*2-2;i--;)x[i%2]+=v(l-2,i/2|0)*+a[i/2|0+i%2],x+"",console.log(x);});</script></body>
+e-1].indexOf(s[i])?a+=e:j(e+1)},f=z=>z<2?1:z*f(z-1),v=(n,r)=>f(n)/(f(r)*f(n-r));for(i=l=s.length;i--;)j(1);for(i=l*2-2;i--;)x[i%2]+=v(l-2
+,d=i/2|0)*+a[i%2==1?d+1:d];x+"";alert(`${x[1]}%`)});</script></body>
