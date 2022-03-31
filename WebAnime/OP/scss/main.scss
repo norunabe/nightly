@@ -5,17 +5,20 @@ body{
     background-color: lightgoldenrodyellow;
 }
 
-div{
+#root{
     margin: auto;
     width: 50%;
     h1{
         border-bottom: solid;
         padding-bottom: 5px;
     }
+    .main{
+        margin-top: 10px;
+    }
 }
 
 @media screen and (max-width:480px) {
-    div{
+    #root{
         width: 100%;
     }
 }
