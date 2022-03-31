@@ -17,6 +17,14 @@ body {
   margin-top: 10px;
 }
 
+#root .main h2 {
+  padding-top: 12px;
+}
+
+#root .main p {
+  word-break: break-all;
+}
+
 @media screen and (max-width: 480px) {
   #root {
     width: 100%;
