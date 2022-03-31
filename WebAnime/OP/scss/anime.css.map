@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAKA,UAAU,CAAV,YAAU;EACN,IAAI;IACA,gBAAgB,EAJjB,IAAI;;;;AAOX,UAAU,CAAV,aAAU;EACN,IAAI;IACA,gBAAgB,EAVjB,oBAAoB",
     "sources": [
         "anime.scss"
     ],

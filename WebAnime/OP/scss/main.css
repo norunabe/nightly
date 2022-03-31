@@ -8,6 +8,12 @@ body {
   width: 50%;
 }
 
+@media screen and (max-width: 480px) {
+  #root {
+    width: 100%;
+  }
+}
+
 #root h1 {
   border-bottom: solid;
   padding-bottom: 5px;
@@ -23,11 +29,5 @@ body {
 
 #root .main p {
   word-break: break-all;
-}
-
-@media screen and (max-width: 480px) {
-  #root {
-    width: 100%;
-  }
 }
 /*# sourceMappingURL=main.css.map */

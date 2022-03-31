@@ -1,1 +1,24 @@
-/* No CSS *//*# sourceMappingURL=anime.css.map */
+@-webkit-keyframes darkdissolve {
+  100% {
+    background-color: #111;
+  }
+}
+
+@keyframes darkdissolve {
+  100% {
+    background-color: #111;
+  }
+}
+
+@-webkit-keyframes lightdissolve {
+  100% {
+    background-color: lightgoldenrodyellow;
+  }
+}
+
+@keyframes lightdissolve {
+  100% {
+    background-color: lightgoldenrodyellow;
+  }
+}
+/*# sourceMappingURL=anime.css.map */

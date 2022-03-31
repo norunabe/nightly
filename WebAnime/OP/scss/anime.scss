@@ -1,1 +1,15 @@
 @charset "utf-8";
+
+$light:lightgoldenrodyellow;
+$dark: #111;
+
+@keyframes darkdissolve{
+    100%{
+        background-color: $dark;
+    }
+}
+@keyframes lightdissolve{
+    100%{
+        background-color: $light;
+    }
+}

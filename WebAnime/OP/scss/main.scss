@@ -5,9 +5,18 @@ body{
     background-color: lightgoldenrodyellow;
 }
 
+@mixin smartphone {
+    @media screen and (max-width:480px) {
+        @content;
+    }
+}
+
 #root{
     margin: auto;
     width: 50%;
+    @include smartphone(){
+        width: 100%;
+    }
     h1{
         border-bottom: solid;
         padding-bottom: 5px;
@@ -20,11 +29,5 @@ body{
         p{
             word-break: break-all;
         }
-    }
-}
-
-@media screen and (max-width:480px) {
-    #root{
-        width: 100%;
     }
 }
