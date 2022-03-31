@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+body{
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+}
+
+div{
+    margin: auto;
+    width: 50%;
+    h1{
+        border-bottom: solid;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    div{
+        width: 100%;
+    }
+}
