@@ -1,24 +1,73 @@
-@-webkit-keyframes darkdissolve {
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
   100% {
-    background-color: #111;
+    opacity: 1;
   }
 }
 
-@keyframes darkdissolve {
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
   100% {
-    background-color: #111;
+    opacity: 1;
   }
 }
 
-@-webkit-keyframes lightdissolve {
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
   100% {
-    background-color: lightgoldenrodyellow;
+    opacity: 0;
   }
 }
 
-@keyframes lightdissolve {
-  100% {
-    background-color: lightgoldenrodyellow;
+@keyframes fadeout {
+  0% {
+    opacity: 1;
   }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes leftslide {
+  0% {
+    -webkit-transform: translateX(-60vw);
+            transform: translateX(-60vw);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes leftslide {
+  0% {
+    -webkit-transform: translateX(-60vw);
+            transform: translateX(-60vw);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.fadein {
+  -webkit-animation: fadein 5s;
+          animation: fadein 5s;
+}
+
+.fadeout {
+  -webkit-animation: fadeout 5s;
+          animation: fadeout 5s;
+}
+
+.leftslide {
+  -webkit-animation: leftslide 4s ease-out;
+          animation: leftslide 4s ease-out;
 }
 /*# sourceMappingURL=anime.css.map */

@@ -1,11 +1,10 @@
 body {
-  text-align: center;
   background-color: lightgoldenrodyellow;
 }
 
 #root {
   margin: auto;
-  width: 50%;
+  width: 45%;
 }
 
 @media screen and (max-width: 480px) {
@@ -30,5 +29,10 @@ body {
 #root .main p {
   margin: 0 auto;
   word-break: break-all;
+}
+
+#root .main img {
+  margin: 6px auto;
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

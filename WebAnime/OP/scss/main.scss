@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 body{
-    text-align: center;
     background-color: lightgoldenrodyellow;
 }
 
@@ -13,7 +12,7 @@ body{
 
 #root{
     margin: auto;
-    width: 50%;
+    width: 45%;
     @include smartphone {
         width: 100%;
     }
@@ -29,6 +28,10 @@ body{
         p{
             margin: 0 auto;
             word-break: break-all;
+        }
+        img{
+            margin: 6px auto;
+            width: 100%;
         }
     }
 }
