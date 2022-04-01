@@ -5,6 +5,7 @@ html
         meta(name="viewport" content="width=device-width,initial-scale=1.0")
         link(rel="stylesheet", href="./css/bootstrap.min.css")
         link(rel="stylesheet", href="./css/main.css")
+        link(rel="stylesheet", href="./css/anime.css")
     body
         .container-fluid
             .row.justify-content-center
@@ -16,5 +17,7 @@ html
                         h4 発覚
                         p.text-wrap いつものように何気なくスマホを手に取る。何も考えなくともTikTokに手が行く。
                         .text-center
-                            img.img-fluid.logo-width__20.loading(src="./img/tiktok-logo.png")
+                            img.img-fluid.logo-width__20.d-none.tiktok-start(src="./img/tiktok-logo.png")
+        script(src="./js/jquery-3.6.0.min.js") 
         script(src="./js/bootstrap.bundle.min.js") 
+        script(src="./js/main.js") 

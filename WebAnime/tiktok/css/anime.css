@@ -1,17 +1,31 @@
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0;
+@-webkit-keyframes douyin {
+  50% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
   }
   100% {
-    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
   }
 }
-@keyframes fadein {
-  0% {
-    opacity: 0;
+
+@keyframes douyin {
+  50% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
   }
   100% {
-    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
   }
+}
+
+.douyin {
+  -webkit-animation-name: douyin;
+          animation-name: douyin;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
 }
 /*# sourceMappingURL=anime.css.map */
