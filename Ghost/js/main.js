@@ -9,7 +9,7 @@ document.getElementById("trap").addEventListener("click",() => {
             judge = true;
             break;
         default:
-            location.href="https://www.google.com";
+            location.href="https://douyin.com";
             break;
     }
 });
