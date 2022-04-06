@@ -1,0 +1,13 @@
+#root{
+    height: 100vh;
+    overflow: hidden;
+    @mixin height ($height) {
+        height: $height+vh;
+    }
+    #game{
+        @include height(50);
+    }
+    #text{
+        @include height(50);
+    }
+}
