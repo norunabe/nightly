@@ -1,4 +1,4 @@
-@-webkit-keyframes fadein {
+@-webkit-keyframes fade-in {
   0% {
     opacity: 0;
   }
@@ -7,7 +7,7 @@
   }
 }
 
-@keyframes fadein {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
@@ -16,7 +16,7 @@
   }
 }
 
-@-webkit-keyframes fadeout {
+@-webkit-keyframes fade-out {
   0% {
     opacity: 1;
   }
@@ -25,8 +25,32 @@
   }
 }
 
-@keyframes fadeout {
+@keyframes fade-out {
   0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  50% {
     opacity: 1;
   }
   100% {
@@ -64,25 +88,32 @@
   }
 }
 
-.fadein {
-  -webkit-animation-name: fadein;
-          animation-name: fadein;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+.fade-in {
+  -webkit-animation-fill-mode: forwards !important;
+          animation-fill-mode: forwards !important;
+  -webkit-animation: fade-in 3s;
+          animation: fade-in 3s;
 }
 
-.fadeout {
-  -webkit-animation-name: fadeout;
-          animation-name: fadeout;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+.fade-out {
+  -webkit-animation-fill-mode: forwards !important;
+          animation-fill-mode: forwards !important;
+  -webkit-animation: fade-out 3s;
+          animation: fade-out 3s;
+}
+
+.fade-in-out {
+  -webkit-animation-fill-mode: forwards !important;
+          animation-fill-mode: forwards !important;
+  -webkit-animation: fade-in-out 6s;
+          animation: fade-in-out 6s;
 }
 
 .gradation-color {
   -webkit-animation-name: gradation-color;
           animation-name: gradation-color;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }

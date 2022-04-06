@@ -3,6 +3,9 @@
     overflow: hidden;
     @mixin height ($height) {
         height: $height+vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     #game{
         @include height(50);

@@ -1,4 +1,4 @@
-@keyframes fadein{
+@keyframes fade-in {
     0%{
         opacity: 0;
     }
@@ -6,8 +6,19 @@
         opacity: 1;
     }
 }
-@keyframes fadeout{
+@keyframes fade-out {
     0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes fade-in-out {
+    0%{
+        opacity: 0;
+    }
+    50%{
         opacity: 1;
     }
     100%{
@@ -29,16 +40,24 @@
     }
 }
 
-.fadein{
-    animation-name: fadein;
-    animation-duration: 3s;
+@mixin fill-mode {
+    animation-fill-mode: forwards !important;
+} 
+
+.fade-in{
+    @include fill-mode();
+    animation: fade-in 3s;
 }
-.fadeout{
-    animation-name: fadeout;
-    animation-duration: 3s;
+.fade-out{
+    @include fill-mode();
+    animation: fade-out 3s;
+}
+.fade-in-out{
+    @include fill-mode();
+    animation: fade-in-out 6s;
 }
 .gradation-color{
     animation-name: gradation-color;
-    animation-duration: 5s;
+    animation-duration: 8s;
     animation-iteration-count: infinite;
 }
