@@ -23,28 +23,22 @@ var First = function (_React$Component) {
                 //返すHTML
                 React.createElement(
                     "div",
-                    null,
+                    { className: "fade-in" },
                     React.createElement(
                         "p",
-                        null,
+                        { className: "fs-3 gradation-color" },
                         "\u307F\u306A\u3055\u3093\u306F\u3058\u3081\u307E\u3057\u3066"
                     ),
-                    React.createElement(
-                        "p",
-                        null,
-                        "PBT\u958B\u767A\u30E1\u30F3\u30D0\u30FC\u3067\u3059"
-                    ),
-                    React.createElement("br", null),
                     React.createElement(
                         "p",
                         null,
                         "\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u540D\u524D\u3092\u6C7A\u3081\u3066\u304F\u3060\u3055\u3044"
                     ),
                     React.createElement(
-                        "form",
-                        null,
-                        React.createElement("input", { type: "text" }),
-                        React.createElement("input", { type: "button", value: "\u6C7A\u5B9A" })
+                        "div",
+                        { className: "input-group mb-3" },
+                        React.createElement("input", { type: "text", className: "form-control", placeholder: "\u597D\u304D\u306A\u540D\u524D\u3092\u5165\u529B", "aria-label": "\u597D\u304D\u306A\u540D\u524D\u3092\u5165\u529B", id: "q" }),
+                        React.createElement("input", { type: "button", value: "OK!", className: "btn btn-outline-light", id: "ok" })
                     )
                 )
             );
@@ -56,41 +50,41 @@ var First = function (_React$Component) {
 //通常処理
 
 
-var Every = function () {
-    //初期設定
-    function Every(id) {
+var Every = function (_React$Component2) {
+    _inherits(Every, _React$Component2);
+
+    function Every() {
         _classCallCheck(this, Every);
 
-        this.id = id;
+        return _possibleConstructorReturn(this, (Every.__proto__ || Object.getPrototypeOf(Every)).apply(this, arguments));
     }
 
     _createClass(Every, [{
-        key: "Hello_message",
-        value: function Hello_message() {
+        key: "render",
+        value: function render() {
             return React.createElement(
-                "div",
-                null,
-                React.createElement(
-                    "p",
-                    null,
-                    "\u304A\u4E45\u3057\u3076\u308A\u3067\u3059 ",
-                    this.id
-                )
+                "p",
+                { className: "fs-3 fade-in-out" },
+                "Hello!?! ",
+                localStorage.getItem("id")
             );
         }
     }]);
 
     return Every;
-}();
+}(React.Component);
 
 var id = localStorage.getItem("id");
-var every = new Every(id);
 switch (id) {
     //IDがない時は登録画面を表示する
     case null:
         ReactDOM.render(React.createElement(First, null), document.getElementById("text"));
+        document.getElementById("ok").addEventListener("click", function () {
+            localStorage.setItem("id", document.getElementById("q").value);
+            ReactDOM.render(React.createElement(Every, null), document.getElementById("text"));
+        });
         break;
     default:
-        ReactDOM.render(every.Hello_message(), document.getElementById("text"));
+        ReactDOM.render(React.createElement(Every, null), document.getElementById("text"));
         break;
 }
