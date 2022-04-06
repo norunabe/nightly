@@ -14,17 +14,9 @@ class Welcome extends React.Component{
     }
 }
 //通常処理
-class Hello extends React.Component{
-    render(){
-        return(
-            <p className="fs-3 fade-in-out">Hello!?! {localStorage.getItem("id")}</p>
-        );
-    }
-}
-
-function React_Every() {
+function Hello(id) {
     ReactDOM.render(
-        <Hello />,
+        <p className="fs-3 fade-in-out">Hello!?! {id}</p>,
         document.getElementById("text")
     );
 }
@@ -41,10 +33,10 @@ switch(id){
         document.getElementById("ok").addEventListener("click",() => {
             localStorage.setItem("id",document.getElementById("q").value);
             id = localStorage.getItem("id");
-            React_Every();
+            Hello(id);
         });
         break;
     default:
-        React_Every();
+        Hello(id);
         break;
 }

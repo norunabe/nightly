@@ -47,32 +47,13 @@ var Welcome = function (_React$Component) {
 //通常処理
 
 
-var Hello = function (_React$Component2) {
-    _inherits(Hello, _React$Component2);
-
-    function Hello() {
-        _classCallCheck(this, Hello);
-
-        return _possibleConstructorReturn(this, (Hello.__proto__ || Object.getPrototypeOf(Hello)).apply(this, arguments));
-    }
-
-    _createClass(Hello, [{
-        key: "render",
-        value: function render() {
-            return React.createElement(
-                "p",
-                { className: "fs-3 fade-in-out" },
-                "Hello!?! ",
-                localStorage.getItem("id")
-            );
-        }
-    }]);
-
-    return Hello;
-}(React.Component);
-
-function React_Every() {
-    ReactDOM.render(React.createElement(Hello, null), document.getElementById("text"));
+function Hello(id) {
+    ReactDOM.render(React.createElement(
+        "p",
+        { className: "fs-3 fade-in-out" },
+        "Hello!?! ",
+        id
+    ), document.getElementById("text"));
 }
 
 var id = localStorage.getItem("id");
@@ -83,10 +64,10 @@ switch (id) {
         document.getElementById("ok").addEventListener("click", function () {
             localStorage.setItem("id", document.getElementById("q").value);
             id = localStorage.getItem("id");
-            React_Every();
+            Hello(id);
         });
         break;
     default:
-        React_Every();
+        Hello(id);
         break;
 }
