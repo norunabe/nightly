@@ -6,7 +6,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//定期Render用関数
+function IntervalRender(elements, selector) {
+    var total_timeout = 0;
+    $.each(elements, function (index, value) {
+        total_timeout += value["timeout"];
+        setTimeout(function () {
+            ReactDOM.render(value["element"], $(selector).get(0));
+        }, total_timeout);
+    });
+}
+
 //初期設定の表示
+
 var Welcome = function (_React$Component) {
     _inherits(Welcome, _React$Component);
 
@@ -47,27 +59,88 @@ var Welcome = function (_React$Component) {
 //通常処理
 
 
-function Hello(id) {
-    ReactDOM.render(React.createElement(
-        "p",
-        { className: "fs-3 fade-in-out" },
-        "Hello!?! ",
-        id
-    ), document.getElementById("text"));
-}
+var Greet = function (_React$Component2) {
+    _inherits(Greet, _React$Component2);
 
-var id = localStorage.getItem("id");
+    function Greet(props) {
+        _classCallCheck(this, Greet);
+
+        var _this2 = _possibleConstructorReturn(this, (Greet.__proto__ || Object.getPrototypeOf(Greet)).call(this, props));
+
+        _this2.greet = props.greet;
+        _this2.id = props.id;
+        return _this2;
+    }
+
+    _createClass(Greet, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "p",
+                { className: "fs-3 fade-in-out" },
+                this.greet,
+                "!! ",
+                this.id
+            );
+        }
+    }]);
+
+    return Greet;
+}(React.Component);
+
+var Menu = function (_React$Component3) {
+    _inherits(Menu, _React$Component3);
+
+    function Menu() {
+        _classCallCheck(this, Menu);
+
+        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+    }
+
+    _createClass(Menu, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "div",
+                null,
+                React.createElement(
+                    "p",
+                    null,
+                    "\u3053\u306E\u30B2\u30FC\u30E0\u306F\u30DF\u30CB\u30B2\u30FC\u30E0\u3067\u30A2\u30D0\u30BF\u30FC\u3092\u80B2\u6210\u3059\u308B\u30B2\u30FC\u30E0\u3067\u3059"
+                )
+            );
+        }
+    }]);
+
+    return Menu;
+}(React.Component);
+
+var id = void 0;
+id = localStorage.getItem("id");
+var Menu_JSX = React.createElement(Menu, null);
 switch (id) {
     //IDがない時は登録画面を表示する
     case null:
-        ReactDOM.render(React.createElement(Welcome, null), document.getElementById("text"));
-        document.getElementById("ok").addEventListener("click", function () {
-            localStorage.setItem("id", document.getElementById("q").value);
+        ReactDOM.render(React.createElement(Welcome, null), $("#text").get(0));
+        $("#ok").click(function () {
+            localStorage.setItem("id", $("#q").val());
             id = localStorage.getItem("id");
-            Hello(id);
+            IntervalRender([{
+                "element": React.createElement(Greet, { greet: "Nice to meet you", id: id }),
+                "timeout": 0
+            }, {
+                "element": Menu_JSX,
+                "timeout": 6000
+            }], "#text");
         });
         break;
     default:
-        Hello(id);
+        IntervalRender([{
+            "element": React.createElement(Greet, { greet: "Good morning", id: id }),
+            "timeout": 0
+        }, {
+            "element": Menu_JSX,
+            "timeout": 6000
+        }], "#text");
         break;
 }
