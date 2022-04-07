@@ -40,20 +40,16 @@
     }
 }
 
-@mixin fill-mode {
+.keep-animation{
     animation-fill-mode: forwards !important;
-} 
-
+}
 .fade-in{
-    @include fill-mode();
     animation: fade-in 3s;
 }
 .fade-out{
-    @include fill-mode();
     animation: fade-out 3s;
 }
 .fade-in-out{
-    @include fill-mode();
     animation: fade-in-out 6s;
 }
 .gradation-color{

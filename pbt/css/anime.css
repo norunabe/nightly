@@ -88,23 +88,22 @@
   }
 }
 
-.fade-in {
+.keep-animation {
   -webkit-animation-fill-mode: forwards !important;
           animation-fill-mode: forwards !important;
+}
+
+.fade-in {
   -webkit-animation: fade-in 3s;
           animation: fade-in 3s;
 }
 
 .fade-out {
-  -webkit-animation-fill-mode: forwards !important;
-          animation-fill-mode: forwards !important;
   -webkit-animation: fade-out 3s;
           animation: fade-out 3s;
 }
 
 .fade-in-out {
-  -webkit-animation-fill-mode: forwards !important;
-          animation-fill-mode: forwards !important;
   -webkit-animation: fade-in-out 6s;
           animation: fade-in-out 6s;
 }
