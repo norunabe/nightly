@@ -76,17 +76,24 @@ var Greet = function (_React$Component2) {
         key: "render",
         value: function render() {
             return React.createElement(
-                "p",
-                { className: "fs-3 fade-in-out" },
-                this.greet,
-                "!! ",
-                this.id
+                "div",
+                null,
+                React.createElement(
+                    "p",
+                    { className: "fs-3 fade-in-out keep-animation" },
+                    this.greet,
+                    "!! ",
+                    this.id
+                )
             );
         }
     }]);
 
     return Greet;
 }(React.Component);
+
+//メインメニュー
+
 
 var Menu = function (_React$Component3) {
     _inherits(Menu, _React$Component3);
@@ -105,7 +112,7 @@ var Menu = function (_React$Component3) {
                 null,
                 React.createElement(
                     "p",
-                    null,
+                    { className: "fs-4 fade-in" },
                     "\u3053\u306E\u30B2\u30FC\u30E0\u306F\u30DF\u30CB\u30B2\u30FC\u30E0\u3067\u30A2\u30D0\u30BF\u30FC\u3092\u80B2\u6210\u3059\u308B\u30B2\u30FC\u30E0\u3067\u3059"
                 )
             );
@@ -130,7 +137,7 @@ switch (id) {
                 "timeout": 0
             }, {
                 "element": Menu_JSX,
-                "timeout": 6000
+                "timeout": 8000
             }], "#text");
         });
         break;
@@ -140,7 +147,7 @@ switch (id) {
             "timeout": 0
         }, {
             "element": Menu_JSX,
-            "timeout": 6000
+            "timeout": 8000
         }], "#text");
         break;
 }

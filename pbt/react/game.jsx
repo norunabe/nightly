@@ -36,15 +36,20 @@ class Greet extends React.Component{
         this.id = props.id;
     }
     render(){
-        return <p className="fs-3 fade-in-out">{this.greet}!! {this.id}</p>
+        return(
+            <div>
+                <p className="fs-3 fade-in-out keep-animation">{this.greet}!! {this.id}</p>
+            </div>
+        );
     }
 }
 
+//メインメニュー
 class Menu extends React.Component{
     render(){
         return(
             <div>
-                <p>このゲームはミニゲームでアバターを育成するゲームです</p>
+                <p className="fs-4 fade-in">このゲームはミニゲームでアバターを育成するゲームです</p>
             </div>
         );
     }
@@ -72,7 +77,7 @@ switch(id){
                     },
                     {
                         "element" : Menu_JSX,
-                        "timeout" : 6000
+                        "timeout" : 8000
                     }
                 ]
             ,"#text");
@@ -87,7 +92,7 @@ switch(id){
                 },
                 {
                     "element" : Menu_JSX,
-                    "timeout" : 6000
+                    "timeout" : 8000
                 }
             ]
         ,"#text");
