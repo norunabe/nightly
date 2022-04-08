@@ -3,20 +3,20 @@ const r = React.createElement;
 
 //待ち時間を指定
 //Promiseベース
-const delay = (seconds) => {
+const delay = (m_seconds) => {
     return new Promise((resolve) => {
-        setTimeout(resolve,seconds);
+        setTimeout(resolve,m_seconds);
     })
 }
 //定期Render用関数
-const IntervalRender = (elements,selector) => {
-    $.each(elements, async (index,value) => {
+const IntervalRender = async (elements,selector) => {
+    for (let element of elements){
         ReactDOM.render(
-            value["element"],
+            element["element"],
             $(selector).get(0)
         );
-        await delay(value["timeout"]);
-    });
+        await delay(element["timeout"]);
+    }
 };
 
 
