@@ -6,14 +6,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//setTimeout地獄,callback地獄から逃げる
+var wait = function wait(seconds) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, seconds);
+    });
+};
 //定期Render用関数
 function IntervalRender(elements, selector) {
-    var total_timeout = 0;
+    var delay = wait(0);
     $.each(elements, function (index, value) {
-        total_timeout += value["timeout"];
-        setTimeout(function () {
+        delay = delay.then(function () {
             ReactDOM.render(value["element"], $(selector).get(0));
-        }, total_timeout);
+            return wait(value["timeout"]);
+        });
     });
 }
 
@@ -77,13 +83,18 @@ var Greet = function (_React$Component2) {
         value: function render() {
             return React.createElement(
                 "div",
-                null,
+                { className: "fade-in-out keep-animation" },
                 React.createElement(
                     "p",
-                    { className: "fs-3 fade-in-out keep-animation" },
+                    { className: "fs-3" },
                     this.greet,
                     "!! ",
                     this.id
+                ),
+                React.createElement(
+                    "a",
+                    { href: "https://github.com/yaskou/nightly/tree/main/pbt", "class": "btn btn-light stretched-link gradation-color" },
+                    "Developer GitHub"
                 )
             );
         }
@@ -114,6 +125,11 @@ var Menu = function (_React$Component3) {
                     "p",
                     { className: "fs-4 fade-in" },
                     "\u3053\u306E\u30B2\u30FC\u30E0\u306F\u30DF\u30CB\u30B2\u30FC\u30E0\u3067\u30A2\u30D0\u30BF\u30FC\u3092\u80B2\u6210\u3059\u308B\u30B2\u30FC\u30E0\u3067\u3059"
+                ),
+                React.createElement(
+                    "button",
+                    { className: "btn" },
+                    "Dino"
                 )
             );
         }
@@ -134,20 +150,20 @@ switch (id) {
             id = localStorage.getItem("id");
             IntervalRender([{
                 "element": React.createElement(Greet, { greet: "Nice to meet you", id: id }),
-                "timeout": 0
+                "timeout": 8000
             }, {
                 "element": Menu_JSX,
-                "timeout": 8000
+                "timeout": 3000
             }], "#text");
         });
         break;
     default:
         IntervalRender([{
             "element": React.createElement(Greet, { greet: "Good morning", id: id }),
-            "timeout": 0
+            "timeout": 8000
         }, {
             "element": Menu_JSX,
-            "timeout": 8000
+            "timeout": 3000
         }], "#text");
         break;
 }

@@ -1,17 +1,22 @@
+//setTimeout地獄,callback地獄から逃げる
+const wait = ((seconds) => {
+    return new Promise((resolve) =>{
+        setTimeout(resolve,seconds);
+    });
+});
 //定期Render用関数
 function IntervalRender(elements,selector){
-    let total_timeout = 0;
+    let delay = wait(0);
     $.each(elements,(index,value) => {
-        total_timeout += value["timeout"];
-        setTimeout(() => {
+        delay = delay.then(() => {
             ReactDOM.render(
                 value["element"],
                 $(selector).get(0)
             );
-        }, total_timeout);
+            return wait(value["timeout"]);
+        });
     });
 }
-
 
 //初期設定の表示
 class Welcome extends React.Component{
@@ -37,8 +42,9 @@ class Greet extends React.Component{
     }
     render(){
         return(
-            <div>
-                <p className="fs-3 fade-in-out keep-animation">{this.greet}!! {this.id}</p>
+            <div className="fade-in-out keep-animation">
+                <p className="fs-3">{this.greet}!! {this.id}</p>
+                <a href="https://github.com/yaskou/nightly/tree/main/pbt" class="btn btn-light stretched-link gradation-color">Developer GitHub</a>
             </div>
         );
     }
@@ -50,6 +56,7 @@ class Menu extends React.Component{
         return(
             <div>
                 <p className="fs-4 fade-in">このゲームはミニゲームでアバターを育成するゲームです</p>
+                <button className="btn">Dino</button>
             </div>
         );
     }
@@ -73,11 +80,11 @@ switch(id){
                 [
                     {
                         "element" : <Greet greet="Nice to meet you" id={id} />,
-                        "timeout" : 0
+                        "timeout" : 8000
                     },
                     {
                         "element" : Menu_JSX,
-                        "timeout" : 8000
+                        "timeout" : 3000
                     }
                 ]
             ,"#text");
@@ -88,11 +95,11 @@ switch(id){
             [
                 {
                     "element" : <Greet greet="Good morning" id={id} />,
-                    "timeout" : 0
+                    "timeout" : 8000
                 },
                 {
                     "element" : Menu_JSX,
-                    "timeout" : 8000
+                    "timeout" : 3000
                 }
             ]
         ,"#text");
