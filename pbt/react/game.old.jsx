@@ -1,11 +1,11 @@
 //setTimeout地獄,callback地獄から逃げる
 const wait = ((seconds) => {
-    return new Promise((resolve) =>{
+    return new Promise((resolve) => {
         setTimeout(resolve,seconds);
     });
 });
 //定期Render用関数
-function IntervalRender(elements,selector){
+function IntervalRender(elements,selector) {
     let delay = wait(0);
     $.each(elements,(index,value) => {
         delay = delay.then(() => {
@@ -56,8 +56,16 @@ class Menu extends React.Component{
         return(
             <div className="fade-in">
                 <p className="fs-4">このゲームはミニゲームでアバターを育成するゲームです</p>
-                <button className="btn btn-outline-secondary">Dino</button>
+                <button className="btn btn-outline-secondary" id="dino">Dino</button>
             </div>
+        );
+    }
+}
+
+class Dino extends React.Component{
+    render(){
+        return(
+            <div>TEST</div>
         );
     }
 }
@@ -66,42 +74,55 @@ class Menu extends React.Component{
 let id;
 id = localStorage.getItem("id");
 let Menu_JSX = <Menu />
-switch(id){
-    //IDがない時は登録画面を表示する
-    case null:
-        ReactDOM.render(
-            <Welcome />,
-            $("#text").get(0)
-        );
-        $("#ok").click(() => {
-            localStorage.setItem("id",$("#q").val());
-            id = localStorage.getItem("id");
-            IntervalRender(
-                [
-                    {
-                        "element" : <Greet greet="Nice to meet you" id={id} />,
-                        "timeout" : 8000
-                    },
-                    {
-                        "element" : Menu_JSX,
-                        "timeout" : 3000
-                    }
-                ]
-            ,"#text");
-        });
-        break;
-    default:
-        IntervalRender(
-            [
-                {
-                    "element" : <Greet greet="Good morning" id={id} />,
-                    "timeout" : 8000
-                },
-                {
-                    "element" : Menu_JSX,
-                    "timeout" : 3000
-                }
-            ]
-        ,"#text");
-        break;
+const id_check = () =>{
+    return new Promise((resolve) => {
+        switch(id){
+            //IDがない時は登録画面を表示する
+            case null:
+                ReactDOM.render(
+                    <Welcome />,
+                    $("#text").get(0)
+                );
+                $("#ok").click(() => {
+                    localStorage.setItem("id",$("#q").val());
+                    id = localStorage.getItem("id");
+                    IntervalRender(
+                        [
+                            {
+                                "element" : <Greet greet="Nice to meet you" id={id} />,
+                                "timeout" : 8000
+                            },
+                            {
+                                "element" : Menu_JSX,
+                                "timeout" : 3000
+                            }
+                        ]
+                    ,"#text");
+                });
+                break;
+            default:
+                IntervalRender(
+                    [
+                        {
+                            "element" : <Greet greet="Good morning" id={id} />,
+                            "timeout" : 8000
+                        },
+                        {
+                            "element" : Menu_JSX,
+                            "timeout" : 3000
+                        }
+                    ]
+                ,"#text");
+                break;
+        }
+    })
 }
+
+id_check().then(() => {
+    $("#dino").click(() => {
+        ReactDOM.render(
+            <Dino />,
+            $("#game").get(0)
+        );
+    });
+});
