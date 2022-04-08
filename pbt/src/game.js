@@ -93,7 +93,7 @@ var Greet = function (_React$Component2) {
                 ),
                 React.createElement(
                     "a",
-                    { href: "https://github.com/yaskou/nightly/tree/main/pbt", "class": "btn btn-light stretched-link gradation-color" },
+                    { href: "https://github.com/yaskou/nightly/tree/main/pbt", "class": "btn btn-outline-light gradation-color" },
                     "Developer GitHub"
                 )
             );
@@ -120,15 +120,15 @@ var Menu = function (_React$Component3) {
         value: function render() {
             return React.createElement(
                 "div",
-                null,
+                { className: "fade-in" },
                 React.createElement(
                     "p",
-                    { className: "fs-4 fade-in" },
+                    { className: "fs-4" },
                     "\u3053\u306E\u30B2\u30FC\u30E0\u306F\u30DF\u30CB\u30B2\u30FC\u30E0\u3067\u30A2\u30D0\u30BF\u30FC\u3092\u80B2\u6210\u3059\u308B\u30B2\u30FC\u30E0\u3067\u3059"
                 ),
                 React.createElement(
                     "button",
-                    { className: "btn" },
+                    { className: "btn btn-outline-secondary" },
                     "Dino"
                 )
             );

@@ -44,7 +44,7 @@ class Greet extends React.Component{
         return(
             <div className="fade-in-out keep-animation">
                 <p className="fs-3">{this.greet}!! {this.id}</p>
-                <a href="https://github.com/yaskou/nightly/tree/main/pbt" class="btn btn-light stretched-link gradation-color">Developer GitHub</a>
+                <a href="https://github.com/yaskou/nightly/tree/main/pbt" class="btn btn-outline-light gradation-color">Developer GitHub</a>
             </div>
         );
     }
@@ -54,9 +54,9 @@ class Greet extends React.Component{
 class Menu extends React.Component{
     render(){
         return(
-            <div>
-                <p className="fs-4 fade-in">このゲームはミニゲームでアバターを育成するゲームです</p>
-                <button className="btn">Dino</button>
+            <div className="fade-in">
+                <p className="fs-4">このゲームはミニゲームでアバターを育成するゲームです</p>
+                <button className="btn btn-outline-secondary">Dino</button>
             </div>
         );
     }
