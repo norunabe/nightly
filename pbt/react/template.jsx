@@ -1,5 +1,10 @@
+//BabelでES5に変換
+
+
+//Render用class
+
 //初期設定の表示
-class Welcome extends React.Component{
+class Welcome_ extends React.Component{
     render(){
         return(
             <div className="fade-in">
@@ -14,7 +19,7 @@ class Welcome extends React.Component{
     }
 }
 //通常処理
-class Greet extends React.Component{
+class Greet_ extends React.Component{
     constructor(props){
         super(props);
         this.greet = props.greet;
@@ -30,7 +35,7 @@ class Greet extends React.Component{
     }
 }
 //メインメニュー
-class Menu extends React.Component{
+class Menu_ extends React.Component{
     render(){
         return(
             <div className="fade-in">
@@ -40,3 +45,21 @@ class Menu extends React.Component{
         );
     }
 }
+
+
+//Render用JSX
+
+const Welcome = <Welcome_ />;
+class Greets {
+    Nice() {
+        return(
+            <Greet_ greet="Nice to meet you" id={id} />
+        );
+    }
+    Hello() {
+        return(
+            <Greet_ greet="Good morning" id={id} />
+        );
+    }
+}
+const Menu = <Menu_ />;

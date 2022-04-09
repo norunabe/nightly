@@ -6,17 +6,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//BabelでES5に変換
+
+
+//Render用class
+
 //初期設定の表示
-var Welcome = function (_React$Component) {
-    _inherits(Welcome, _React$Component);
+var Welcome_ = function (_React$Component) {
+    _inherits(Welcome_, _React$Component);
 
-    function Welcome() {
-        _classCallCheck(this, Welcome);
+    function Welcome_() {
+        _classCallCheck(this, Welcome_);
 
-        return _possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Welcome_.__proto__ || Object.getPrototypeOf(Welcome_)).apply(this, arguments));
     }
 
-    _createClass(Welcome, [{
+    _createClass(Welcome_, [{
         key: "render",
         value: function render() {
             return React.createElement(
@@ -42,25 +47,25 @@ var Welcome = function (_React$Component) {
         }
     }]);
 
-    return Welcome;
+    return Welcome_;
 }(React.Component);
 //通常処理
 
 
-var Greet = function (_React$Component2) {
-    _inherits(Greet, _React$Component2);
+var Greet_ = function (_React$Component2) {
+    _inherits(Greet_, _React$Component2);
 
-    function Greet(props) {
-        _classCallCheck(this, Greet);
+    function Greet_(props) {
+        _classCallCheck(this, Greet_);
 
-        var _this2 = _possibleConstructorReturn(this, (Greet.__proto__ || Object.getPrototypeOf(Greet)).call(this, props));
+        var _this2 = _possibleConstructorReturn(this, (Greet_.__proto__ || Object.getPrototypeOf(Greet_)).call(this, props));
 
         _this2.greet = props.greet;
         _this2.id = props.id;
         return _this2;
     }
 
-    _createClass(Greet, [{
+    _createClass(Greet_, [{
         key: "render",
         value: function render() {
             return React.createElement(
@@ -82,21 +87,21 @@ var Greet = function (_React$Component2) {
         }
     }]);
 
-    return Greet;
+    return Greet_;
 }(React.Component);
 //メインメニュー
 
 
-var Menu = function (_React$Component3) {
-    _inherits(Menu, _React$Component3);
+var Menu_ = function (_React$Component3) {
+    _inherits(Menu_, _React$Component3);
 
-    function Menu() {
-        _classCallCheck(this, Menu);
+    function Menu_() {
+        _classCallCheck(this, Menu_);
 
-        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Menu_.__proto__ || Object.getPrototypeOf(Menu_)).apply(this, arguments));
     }
 
-    _createClass(Menu, [{
+    _createClass(Menu_, [{
         key: "render",
         value: function render() {
             return React.createElement(
@@ -116,5 +121,31 @@ var Menu = function (_React$Component3) {
         }
     }]);
 
-    return Menu;
+    return Menu_;
 }(React.Component);
+
+//Render用JSX
+
+var Welcome = React.createElement(Welcome_, null);
+
+var Greets = function () {
+    function Greets() {
+        _classCallCheck(this, Greets);
+    }
+
+    _createClass(Greets, [{
+        key: "Nice",
+        value: function Nice() {
+            return React.createElement(Greet_, { greet: "Nice to meet you", id: id });
+        }
+    }, {
+        key: "Hello",
+        value: function Hello() {
+            return React.createElement(Greet_, { greet: "Good morning", id: id });
+        }
+    }]);
+
+    return Greets;
+}();
+
+var Menu = React.createElement(Menu_, null);
