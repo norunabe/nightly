@@ -1,3 +1,5 @@
+"use strict";
+
 //DOM構築用変数
 const r = React.createElement;
 
