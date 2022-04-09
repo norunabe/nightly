@@ -8,7 +8,7 @@ const r = React.createElement;
 const delay = (m_seconds) => {
     return new Promise((resolve) => {
         setTimeout(resolve,m_seconds);
-    })
+    });
 }
 //定期Render用関数
 const IntervalRender = async (elements,selector) => { //async,awaitはES7
@@ -25,7 +25,7 @@ const IntervalRender = async (elements,selector) => { //async,awaitはES7
 let id;
 id = localStorage.getItem("id"); //idをlocalstorageから取得
 const Greet = new Greets(); //Greetsclass用の変数
-switch(id){
+switch (id) {
     //IDがない時は登録画面を表示する
     case null:
         ReactDOM.render(
@@ -33,34 +33,34 @@ switch(id){
             $("#text").get(0)
         );
         $("#ok").click(() => {
-            localStorage.setItem("id",$("#q").val());
+            localStorage.setItem("id", $("#q").val());
             id = localStorage.getItem("id");
             IntervalRender(
                 [
                     {
-                        "element" : Greet.Nice() ,
-                        "timeout" : 8000
+                        "element": Greet.Nice(),
+                        "timeout": 6000
                     },
                     {
-                        "element" : Menu,
-                        "timeout" : 3000
+                        "element": Menu,
+                        "timeout": 3000
                     }
-                ]
-            ,"#text");
+                ],
+            "#text");
         });
         break;
     default:
         IntervalRender(
             [
                 {
-                    "element" : Greet.Hello() ,
-                    "timeout" : 8000
+                    "element": Greet.Hello(),
+                    "timeout": 6000
                 },
                 {
-                    "element" : Menu,
-                    "timeout" : 3000
+                    "element": Menu,
+                    "timeout": 3000
                 }
-            ]
-        ,"#text");
+            ],
+            "#text");
         break;
 }
