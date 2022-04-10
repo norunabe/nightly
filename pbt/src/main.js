@@ -1,6 +1,6 @@
 import { createApp } from "vue"
 import App from "./App.vue"
-import Welcome from "./components/WelcomeVue.vue";
+import WelcomeVue from "./components/WelcomeVue.vue";
 import GreetVue from "./components/GreetVue.vue";
 
 //メインフレームワーク構成
@@ -10,11 +10,18 @@ createApp(App).mount("#app");
 //ログイン管理
 let id = String;
 id = localStorage.getItem("id");
-switch (id) {
-    case null:
-        createApp(<Welcome  />).mount("#text");
-        break;
-    default:
-        createApp(<GreetVue greet="Hello" id={id} />).mount("#text");
-        break;
+const id_check = () => {
+    switch (id) {
+        case null:
+            createApp(<WelcomeVue  />).mount("#text");
+            break;
+        default:
+            createApp(<GreetVue greet="Hello" id={id} />).mount("#game");
+            break;
+    }
 }
+
+const main = () => {
+    id_check();
+}
+main();

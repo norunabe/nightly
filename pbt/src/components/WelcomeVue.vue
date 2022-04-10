@@ -17,9 +17,10 @@ export default {
     name : "WelcomeVue",
     methods : {
         set_id () {
+            document.getElementById("text").classList.add("fade-out","keep-animation");
             let id = document.getElementById("q").value;
             localStorage.setItem("id",id);
-            createApp(<GreetVue greet="Nice to meet you!" id={id} />).mount("#text");
+            createApp(<GreetVue greet="Nice to meet you!" id={id} />).mount("#game");
         }
     }
 }
