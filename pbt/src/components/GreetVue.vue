@@ -1,5 +1,5 @@
 <template>
-    <p class="fs-1 fade-in" id="greet">{{ greet }} {{ id }}</p>
+    <p class="fs-1 fade-in-out keep-animation" id="greet">{{ greet }} {{ id }}</p>
 </template>
 
 <script>
@@ -9,5 +9,11 @@ export default {
         greet : String,
         id : String
     }
-}
+};
 </script>
+
+<style scoped>
+    .fade-in-out {
+        animation-timing-function: ease !important;
+    }
+</style>

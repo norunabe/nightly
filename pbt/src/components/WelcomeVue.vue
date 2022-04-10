@@ -12,12 +12,13 @@
 <script>
 import { createApp } from 'vue';
 import GreetVue from "./GreetVue.vue";
+
 export default {
     name : "WelcomeVue",
     methods : {
-        set_id : () => {
-            localStorage.setItem("id",document.getElementById("q").value);
-            let id = localStorage.getItem("id");
+        set_id () {
+            let id = document.getElementById("q").value;
+            localStorage.setItem("id",id);
             createApp(<GreetVue greet="Nice to meet you!" id={id} />).mount("#text");
         }
     }

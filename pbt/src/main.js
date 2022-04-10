@@ -8,7 +8,7 @@ createApp(App).mount("#app");
 
 
 //ログイン管理
-let id;
+let id = String;
 id = localStorage.getItem("id");
 switch (id) {
     case null:
